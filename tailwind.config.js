@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       backgroundImage:{
-        'bodyBg' : 'url(/images/anime-moon-landscape.jpg)'
+        'bodyBg' : 'url(/images/anime-moon-landscape.jpg)',
+        'logoNM' : 'url(/logo/logo-NimeWatch.png)'
       },
       colors:{
         cyan: {
