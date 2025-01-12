@@ -6,6 +6,12 @@ export default {
   ],
   theme: {
     extend: {
+      height:{
+        100 : '25rem'
+      },
+      width:{
+        '9/20' : '45%'
+      },
       backgroundImage:{
         'bodyBg' : 'url(/images/anime-moon-landscape.jpg)',
         'logoNM' : 'url(/logo/logo-NimeWatch.png)'
