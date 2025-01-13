@@ -89,18 +89,23 @@ function App() {
 }
 
   const [searchAnimeVal, setSearchAnimeVal]   = useState('')
+  const [arrAnimeBySearch, setArrAnimeBySearch] = useState(Array())
   
   let searchVal = (value) =>{
     setSearchAnimeVal(value)
   }
 
-  let regex = new RegExp(searchAnimeVal, 'i')
-  let showAnimeBySearch
   useEffect(() => {
-    showAnimeBySearch = active.filter((anime) => regex.test(anime.title))
-    console.log(showAnimeBySearch)
+    if(searchAnimeVal === ''){
+      setArrAnimeBySearch([...active])
+      return
+    }
 
-  }, [searchVal])
+    let regex = new RegExp(searchAnimeVal, 'i')
+    const filterAnime = active.filter((anime) => regex.test(anime.title))
+    setArrAnimeBySearch(filterAnime)
+    
+  }, [searchAnimeVal])
 
   return (
     <>
@@ -112,7 +117,7 @@ function App() {
             <Carousel carouselItems={animeDatas}/>
           </div>
           <div className='w-8/12 mx-auto rounded-xl'>
-            <AnimeList animeData={active} clickAnime={getAnimeDataById} onClickAnime={handleClickAnime} search={searchVal}/>
+            <AnimeList animeData={arrAnimeBySearch} clickAnime={getAnimeDataById} onClickAnime={handleClickAnime} search={searchVal}/>
           </div>
         </div>
       </div>

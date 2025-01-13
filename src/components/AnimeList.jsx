@@ -1,5 +1,6 @@
 import React from "react"
 import { IoIosArrowBack } from "react-icons/io";
+import CountAnimeList from "./CountAnimeList";
 
 export default function AnimeList({animeData, clickAnime, onClickAnime, search}){
 
@@ -15,9 +16,10 @@ export default function AnimeList({animeData, clickAnime, onClickAnime, search})
                         </svg>
                     </button>
                 </div>
+                <CountAnimeList dataAnime={animeData}/>
                 <ul className="text-white">
                 {
-                    animeData.map((anime, index) =>(
+                    animeData.map((anime) =>(
                         <React.Fragment key={anime.id}>
                             <li key={anime.id} className="h-12 leading-loose">
                                 <div className="flex justify-between">
